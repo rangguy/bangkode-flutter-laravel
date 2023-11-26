@@ -8,49 +8,57 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> {
-  Map<String, dynamic> _data = {};
-
   @override
   void initState() {
     super.initState();
-    fetchDataFromAPI();
-  }
-
-  Future<void> fetchDataFromAPI() async {
-    var apiUrl = Uri.parse('http://10.0.2.2:8000/api/course');
-
-    try {
-      var response = await http.get(apiUrl);
-      if (response.statusCode == 200) {
-        setState(() {
-          _data = json.decode(response.body);
-        });
-      } else {
-        print('Failed to load data: ${response.statusCode}');
-      }
-    } catch (e) {
-      print('Error: $e');
-    }
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Data from API'),
-      ),
-      body: _data.isEmpty
-          ? Center(child: CircularProgressIndicator())
-          : ListView.builder(
-              itemCount: _data.length,
-              itemBuilder: (context, index) {
-                return ListTile(
-                  title: Text('${_data['nama_kategori']}'),
-                  subtitle: Text('${_data['foto']}'),
-                  // Customize further to display other fields as needed
-                );
-              },
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Dashboard'),
+        ),
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            // Bagian gambar-gambar yang dapat discroll ke samping
+            Container(
+              height: 150,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: [
+                  Image.network('https://via.placeholder.com/150'),
+                  Image.network('https://via.placeholder.com/150'),
+                  Image.network('https://via.placeholder.com/150'),
+                  Image.network('https://via.placeholder.com/150'),
+                  Image.network('https://via.placeholder.com/150'),
+                  Image.network('https://via.placeholder.com/150'),
+                  // Tambahkan gambar-gambar lain sesuai kebutuhan
+                ],
+              ),
             ),
+            // Bagian list beserta gambar yang dapat discroll ke bawah
+            Expanded(
+              child: ListView.builder(
+                itemCount:
+                    20, // Ganti dengan jumlah item yang ingin ditampilkan
+                itemBuilder: (context, index) {
+                  return Card(
+                    child: ListTile(
+                      leading: Image.network('https://via.placeholder.com/50'),
+                      title: Text('Item $index'),
+                      subtitle: Text('Deskripsi item $index'),
+                      // Tambahkan widget lainnya sesuai kebutuhan
+                    ),
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
