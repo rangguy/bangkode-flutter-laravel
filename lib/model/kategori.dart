@@ -7,7 +7,7 @@ class Kategori {
 
   factory Kategori.fromJson(Map<String, dynamic> obj) {
     return Kategori(
-      id_kategori: int.parse(obj['id_kategori']),
+      id_kategori: obj['id_kategori'],
       nama_kategori: obj['nama_kategori'],
       foto: obj['foto'],
     );

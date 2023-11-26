@@ -17,7 +17,7 @@ class _DashboardState extends State<Dashboard> {
   }
 
   Future<void> fetchDataFromAPI() async {
-    var apiUrl = Uri.parse('http://localhost:8000/api/course');
+    var apiUrl = Uri.parse('http://10.0.2.2:8000/api/course');
 
     try {
       var response = await http.get(apiUrl);

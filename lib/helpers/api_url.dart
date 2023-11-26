@@ -1,5 +1,5 @@
 class ApiUrl {
-  static const String baseUrl = 'http://192.168.1.9:8000/api/course';
+  static const String baseUrl = 'http://10.0.2.2:8000/api/course';
 
   // static const String registrasi = '$baseUrl/registrasi';
   // static const String login = '$baseUrl/login';
