@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:bangkode/Services/globals.dart';
+import 'package:bangkode/helpers/api_url.dart';
 import 'package:http/http.dart' as http;
 
 class AuthServices {
@@ -12,7 +13,7 @@ class AuthServices {
       "password": password,
     };
     var body = json.encode(data);
-    var url = Uri.parse(baseURL + 'auth/register');
+    var url = Uri.parse(ApiUrl.registrasi);
     http.Response response = await http.post(
       url,
       headers: headers,
@@ -28,7 +29,7 @@ class AuthServices {
       "password": password,
     };
     var body = json.encode(data);
-    var url = Uri.parse(baseURL + 'auth/login');
+    var url = Uri.parse(ApiUrl.login);
     http.Response response = await http.post(
       url,
       headers: headers,

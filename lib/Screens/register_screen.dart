@@ -35,7 +35,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (BuildContext context) => Dashboard(),
+              builder: (BuildContext context) => Nav(),
             ));
       } else {
         errorSnackBar(context, responseMap.values.first[0]);

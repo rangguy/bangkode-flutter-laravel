@@ -1,8 +1,8 @@
 class ApiUrl {
   static const String baseUrl = 'http://10.0.2.2:8000/api';
 
-  // static const String registrasi = '$baseUrl/registrasi';
-  // static const String login = '$baseUrl/login';
+  static const String registrasi = '$baseUrl/auth/register';
+  static const String login = '$baseUrl/auth/login';
   static const String getKategori = '$baseUrl/course';
   static const String getTopik = 'http://10.0.2.2:8000/api/topik';
 

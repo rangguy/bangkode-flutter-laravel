@@ -36,6 +36,7 @@ class _KategoriPageState extends State<KategoriPage> {
             ),
           ),
         ),
+        automaticallyImplyLeading: false,
       ),
       body: FutureBuilder<List>(
         future: KategoriBloc.getKategoris(),

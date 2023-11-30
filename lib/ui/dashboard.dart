@@ -3,6 +3,7 @@ import 'package:bangkode/bloc/topik_bloc.dart';
 import 'package:bangkode/model/kategori.dart';
 import 'package:bangkode/model/materi.dart';
 import 'package:bangkode/model/topik.dart';
+import 'package:bangkode/nav.dart';
 import 'package:bangkode/ui/alltopik.dart';
 import 'package:bangkode/ui/kategori_page.dart';
 import 'package:bangkode/ui/materi_page.dart';
@@ -82,7 +83,7 @@ class ListTopik extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: 4,
+      itemCount: 5,
       itemBuilder: (context, i) {
         return ItemTopik(
           topik: list![i],
@@ -136,6 +137,7 @@ class _DashboardState extends State<Dashboard> {
             const Text('Selamat Datang', style: TextStyle(color: Colors.white)),
         centerTitle: true,
         backgroundColor: Colors.deepPurple,
+        automaticallyImplyLeading: false,
       ),
       body: SizedBox(
         height: MediaQuery.of(context).size.height * 0.8,
@@ -156,7 +158,7 @@ class _DashboardState extends State<Dashboard> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => KategoriPage(),
+                      builder: (context) => Nav(),
                     ),
                   );
                 },

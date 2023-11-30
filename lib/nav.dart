@@ -1,5 +1,6 @@
 import 'package:bangkode/ui/dashboard.dart';
 import 'package:bangkode/ui/kategori_page.dart';
+import 'package:bangkode/ui/profile_page.dart';
 import 'package:flutter/material.dart';
 
 class Nav extends StatefulWidget {
@@ -11,7 +12,7 @@ class Nav extends StatefulWidget {
 
 class _NavState extends State<Nav> {
   int currentTab = 0;
-  final List<Widget> screens = [Dashboard(), KategoriPage()];
+  final List<Widget> screens = [Dashboard(), KategoriPage(), ProfilePage()];
 
   final PageStorageBucket bucket = PageStorageBucket();
   Widget currentScreen = Dashboard();
@@ -86,35 +87,35 @@ class _NavState extends State<Nav> {
                   ),
                 ],
               ),
-              // Row(
-              //   crossAxisAlignment: CrossAxisAlignment.stretch,
-              //   children: [
-              //     MaterialButton(
-              //       minWidth: 40,
-              //       onPressed: () {
-              //         setState(() {
-              //           currentScreen = Profile();
-              //           currentTab = 2;
-              //         });
-              //       },
-              //       child: Column(
-              //         mainAxisAlignment: MainAxisAlignment.center,
-              //         children: [
-              //           Icon(
-              //             Icons.account_circle,
-              //             color: currentTab == 2 ? Colors.deepPurple : Colors.grey,
-              //           ),
-              //           Text(
-              //             'Account',
-              //             style: TextStyle(
-              //                 color:
-              //                     currentTab == 2 ? Colors.deepPurple : Colors.grey),
-              //           ),
-              //         ],
-              //       ),
-              //     ),
-              //   ],
-              // )
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  MaterialButton(
+                    minWidth: 40,
+                    onPressed: () {
+                      setState(() {
+                        currentScreen = ProfilePage();
+                        currentTab = 2;
+                      });
+                    },
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.account_circle,
+                          color: currentTab == 2 ? Colors.deepPurple : Colors.grey,
+                        ),
+                        Text(
+                          'Account',
+                          style: TextStyle(
+                              color:
+                                  currentTab == 2 ? Colors.deepPurple : Colors.grey),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              )
             ],
           ),
         ),
