@@ -96,9 +96,18 @@ class ItemKategori extends StatelessWidget {
         );
       },
       child: Card(
+        color: Colors.white, // Warna latar belakang putih
+        shape: RoundedRectangleBorder(
+          side: BorderSide(color: Colors.black, width: 0.5), // Border berwarna hitam
+          borderRadius: BorderRadius.circular(10.0),
+        ),
         child: ListTile(
-          leading: Image.network('http://10.0.2.2:8000/storage/kategori/${kategori.foto!}', width: 60,),
+          leading: Image.network(
+            'http://10.0.2.2:8000/storage/kategori/${kategori.foto!}',
+            width: 60,
+          ),
           title: Text(kategori.nama_kategori!),
+          trailing: Icon(Icons.arrow_forward), // Icon di bagian ujung kanan
         ),
       ),
     );

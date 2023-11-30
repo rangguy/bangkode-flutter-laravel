@@ -47,11 +47,11 @@ class _MateriPageState extends State<MateriPage> {
               children: [
                 Container(
                   width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height*0.4,
+                  height: MediaQuery.of(context).size.height * 0.4,
                   decoration: ShapeDecoration(
                     image: DecorationImage(
-                      image:
-                          NetworkImage("http://10.0.2.2:8000/storage/topik/${widget.topik!.logo_topik}"),
+                      image: NetworkImage(
+                          "http://10.0.2.2:8000/storage/topik/${widget.topik!.logo_topik}"),
                       fit: BoxFit.fill,
                     ),
                     shape: RoundedRectangleBorder(
@@ -102,6 +102,12 @@ class ItemMateri extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: Colors.white, // Warna latar belakang putih
+      shape: RoundedRectangleBorder(
+        side: BorderSide(
+            color: Colors.black, width: 0.5), // Border berwarna hitam
+        borderRadius: BorderRadius.circular(10.0),
+      ),
       child: ListTile(
         title: Text("${materi.id_materi}"),
         subtitle: Text("${materi.judul_materi}"),
@@ -115,6 +121,7 @@ class ItemMateri extends StatelessWidget {
             ),
           );
         },
+        trailing: Icon(Icons.arrow_forward), // Icon di bagian ujung kanan
       ),
     );
   }

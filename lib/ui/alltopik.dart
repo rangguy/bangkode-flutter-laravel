@@ -5,15 +5,14 @@ import 'package:bangkode/ui/materi_page.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
-class TopikPage extends StatefulWidget {
-  Kategori? kategori;
-  TopikPage({Key? key, required this.kategori}) : super(key: key);
+class AllTopik extends StatefulWidget {
+  AllTopik({Key? key}) : super(key: key);
 
   @override
-  _TopikPageState createState() => _TopikPageState();
+  _AllTopikState createState() => _AllTopikState();
 }
 
-class _TopikPageState extends State<TopikPage> {
+class _AllTopikState extends State<AllTopik> {
   late Future<List<Topik>> _topiksFuture;
   int dataLength = 0;
 
@@ -21,30 +20,15 @@ class _TopikPageState extends State<TopikPage> {
   void initState() {
     super.initState();
     _topiksFuture =
-        TopikBloc.getTopiks(id_kategori: widget.kategori!.id_kategori);
+        TopikBloc.getAllTopiks();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("${widget.kategori!.nama_kategori}"),
+        title: Text("List Semua Topik"),
         centerTitle: true,
-        bottom: PreferredSize(
-          preferredSize:
-              const Size.fromHeight(10.0), // Sesuaikan tinggi sesuai kebutuhan
-          child: Padding(
-            padding: const EdgeInsets.only(bottom: 8.0),
-            child: Text(
-              '$dataLength Topik',
-              style: const TextStyle(
-                fontSize: 14.0,
-                fontStyle: FontStyle.normal,
-                color: Colors.black,
-              ),
-            ),
-          ),
-        ),
       ),
       body: FutureBuilder<List<Topik>>(
         future: _topiksFuture,
