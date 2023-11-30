@@ -56,6 +56,7 @@ class _TopikPageState extends State<TopikPage> {
           } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
             return Center(child: Text('Tidak ada data topik'));
           } else {
+            dataLength = snapshot.data!.length;
             return ListTopik(list: snapshot.data);
           }
         },
@@ -96,7 +97,9 @@ class ItemTopik extends StatelessWidget {
       ),
       child: ListTile(
         leading: Image.network(
-            'http://10.0.2.2:8000/storage/topik/${topik.logo_topik!}', width: 60,),
+          'http://10.0.2.2:8000/storage/topik/${topik.logo_topik!}',
+          width: 60,
+        ),
         title: Text("${topik.id_topik}"),
         subtitle: Text("${topik.nama_topik}"),
         onTap: () {
