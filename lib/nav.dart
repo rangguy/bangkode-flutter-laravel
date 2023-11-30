@@ -44,13 +44,13 @@ class _NavState extends State<Nav> {
                       children: [
                         Icon(
                           Icons.home,
-                          color: currentTab == 0 ? Colors.blue : Colors.grey,
+                          color: currentTab == 0 ? Colors.deepPurple : Colors.grey,
                         ),
                         Text(
                           'Home',
                           style: TextStyle(
                               color:
-                                  currentTab == 0 ? Colors.blue : Colors.grey),
+                                  currentTab == 0 ? Colors.deepPurple : Colors.grey),
                         )
                       ],
                     ),
@@ -72,14 +72,14 @@ class _NavState extends State<Nav> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Icon(
-                          Icons.book,
-                          color: currentTab == 1 ? Colors.blue : Colors.grey,
+                          Icons.menu_book,
+                          color: currentTab == 1 ? Colors.deepPurple : Colors.grey,
                         ),
                         Text(
                           'Course',
                           style: TextStyle(
                               color:
-                                  currentTab == 1 ? Colors.blue : Colors.grey),
+                                  currentTab == 1 ? Colors.deepPurple : Colors.grey),
                         ),
                       ],
                     ),
@@ -102,13 +102,13 @@ class _NavState extends State<Nav> {
               //         children: [
               //           Icon(
               //             Icons.account_circle,
-              //             color: currentTab == 2 ? Colors.blue : Colors.grey,
+              //             color: currentTab == 2 ? Colors.deepPurple : Colors.grey,
               //           ),
               //           Text(
               //             'Account',
               //             style: TextStyle(
               //                 color:
-              //                     currentTab == 2 ? Colors.blue : Colors.grey),
+              //                     currentTab == 2 ? Colors.deepPurple : Colors.grey),
               //           ),
               //         ],
               //       ),

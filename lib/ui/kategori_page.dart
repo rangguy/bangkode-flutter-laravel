@@ -1,5 +1,6 @@
 import 'package:bangkode/bloc/kategori_bloc.dart';
 import 'package:bangkode/model/kategori.dart';
+import 'package:bangkode/ui/topik_page.dart';
 import 'package:flutter/material.dart';
 
 class KategoriPage extends StatefulWidget {
@@ -10,28 +11,37 @@ class KategoriPage extends StatefulWidget {
 }
 
 class _KategoriPageState extends State<KategoriPage> {
+  int dataLength = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('List Kategori'),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 20.0),
-            child: GestureDetector(
-              child: const Icon(Icons.add, size: 26.0),
-              onTap: () async {
-                // Navigator.push(context, MaterialPageRoute(builder: (context) => ProdukForm()));
-              },
+        centerTitle: true,
+        bottom: PreferredSize(
+          preferredSize:
+              const Size.fromHeight(10.0), // Sesuaikan tinggi sesuai kebutuhan
+          child: Padding(
+            padding: const EdgeInsets.only(bottom: 8.0),
+            child: Text(
+              '$dataLength Bahasa',
+              style: const TextStyle(
+                fontSize: 14.0,
+                fontStyle: FontStyle.normal,
+                color: Colors.black,
+              ),
             ),
           ),
-        ],
+        ),
       ),
       body: FutureBuilder<List>(
         future: KategoriBloc.getKategoris(),
         builder: (context, snapshot) {
-          // return ListKategori();
           if (snapshot.hasError) print(snapshot.error);
+          if (snapshot.hasData) {
+            dataLength = snapshot.data!.length; // Mengambil panjang data list
+          }
           return snapshot.hasData
               ? ListKategori(
                   list: snapshot.data,
@@ -48,7 +58,7 @@ class _KategoriPageState extends State<KategoriPage> {
 class ListKategori extends StatelessWidget {
   final List? list;
 
-  const ListKategori({Key? key, this.list}) : super(key: key);
+  ListKategori({Key? key, this.list}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -72,14 +82,14 @@ class ItemKategori extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        // Navigator.push(
-        //   context,
-        //   MaterialPageRoute(
-        //     builder: (context) => ProdukDetail(
-        //       produk: produk,
-        //     ),
-        //   ),
-        // );
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => TopikPage(
+              kategori: kategori,
+            ),
+          ),
+        );
       },
       child: Card(
         child: ListTile(
