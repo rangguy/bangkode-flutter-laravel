@@ -1,5 +1,4 @@
 import 'package:bangkode/splashscreen.dart/splashscreen.dart';
-import 'package:bangkode/ui/dashboard.dart';
 import 'package:flutter/material.dart';
 
 void main() {

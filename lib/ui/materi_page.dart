@@ -1,11 +1,10 @@
 import 'package:bangkode/bloc/materi_bloc.dart';
-import 'package:bangkode/bloc/topik_bloc.dart';
-import 'package:bangkode/model/kategori.dart';
 import 'package:bangkode/model/materi.dart';
 import 'package:bangkode/model/topik.dart';
 import 'package:bangkode/ui/materi_player.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class MateriPage extends StatefulWidget {
   Topik? topik;
   MateriPage({Key? key, required this.topik}) : super(key: key);
