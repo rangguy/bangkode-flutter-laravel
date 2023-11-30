@@ -38,17 +38,19 @@ class _KategoriPageState extends State<KategoriPage> {
       body: FutureBuilder<List>(
         future: KategoriBloc.getKategoris(),
         builder: (context, snapshot) {
-          if (snapshot.hasError) print(snapshot.error);
-          if (snapshot.hasData) {
-            dataLength = snapshot.data!.length; // Mengambil panjang data list
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return Center(child: CircularProgressIndicator());
+          } else if (snapshot.hasError) {
+            return Center(child: Text('Error: ${snapshot.error}'));
+          } else if (snapshot.hasData) {
+            // Update dataLength di sini setelah mendapatkan data
+            dataLength = snapshot.data!.length;
+            return ListKategori(
+              list: snapshot.data,
+            );
+          } else {
+            return Center(child: Text('No Data'));
           }
-          return snapshot.hasData
-              ? ListKategori(
-                  list: snapshot.data,
-                )
-              : const Center(
-                  child: CircularProgressIndicator(),
-                );
         },
       ),
     );
@@ -93,6 +95,7 @@ class ItemKategori extends StatelessWidget {
       },
       child: Card(
         child: ListTile(
+          leading: Image.network('https://via.placeholder.com/50'),
           title: Text(kategori.nama_kategori!),
           subtitle: Text(kategori.foto!),
         ),

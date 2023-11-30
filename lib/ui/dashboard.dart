@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 class Dashboard extends StatefulWidget {
   @override
   _DashboardState createState() => _DashboardState();
@@ -15,7 +16,23 @@ class _DashboardState extends State<Dashboard> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          // Bagian gambar-gambar yang dapat discroll ke samping
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              'Bahasa Pemrograman',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text('Lihat Semua'),
+                Icon(Icons.arrow_forward),
+              ],
+            ),
+          ),
           Container(
             height: 150,
             child: ListView(
@@ -31,10 +48,27 @@ class _DashboardState extends State<Dashboard> {
               ],
             ),
           ),
-          // Bagian list beserta gambar yang dapat discroll ke bawah
+          SizedBox(height: 20),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              'Topik',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text('Lihat Semua'),
+                Icon(Icons.arrow_forward),
+              ],
+            ),
+          ),
           Expanded(
             child: ListView.builder(
-              itemCount: 20, // Ganti dengan jumlah item yang ingin ditampilkan
+              itemCount: 20,
               itemBuilder: (context, index) {
                 return Card(
                   child: ListTile(

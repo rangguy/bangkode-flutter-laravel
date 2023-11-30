@@ -89,14 +89,14 @@ class ItemTopik extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: ListTile(
+        leading: Image.network('https://via.placeholder.com/50'),
         title: Text("${topik.id_topik}"),
         subtitle: Text("${topik.nama_topik}"),
         onTap: () {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) =>
-                  MateriPage(topik: topik),
+              builder: (context) => MateriPage(topik: topik),
             ),
           );
         },
