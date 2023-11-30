@@ -25,12 +25,18 @@ class _DashboardState extends State<Dashboard> {
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text('Lihat Semua'),
-                Icon(Icons.arrow_forward),
-              ],
+            child: InkWell(
+              onTap: () {
+                // Implementasi navigasi ke halaman lain di sini
+                // Misalnya, Navigator.push ke halaman yang dituju
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text('Lihat Semua'),
+                  Icon(Icons.arrow_forward),
+                ],
+              ),
             ),
           ),
           Container(
@@ -58,12 +64,18 @@ class _DashboardState extends State<Dashboard> {
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text('Lihat Semua'),
-                Icon(Icons.arrow_forward),
-              ],
+            child: InkWell(
+              onTap: () {
+                // Implementasi navigasi ke halaman lain di sini
+                // Misalnya, Navigator.push ke halaman yang dituju
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text('Lihat Semua'),
+                  Icon(Icons.arrow_forward),
+                ],
+              ),
             ),
           ),
           Expanded(
