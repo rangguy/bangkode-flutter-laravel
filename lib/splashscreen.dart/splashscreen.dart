@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:bangkode/nav.dart';
+import 'package:bangkode/Screens/register_screen.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -16,7 +17,7 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     Timer(const Duration(seconds: 3), () {
       Navigator.of(context).pushReplacement(MaterialPageRoute(
-        builder: (context) => const Nav(),
+        builder: (context) => const RegisterScreen(),
       ));
     });
   }
