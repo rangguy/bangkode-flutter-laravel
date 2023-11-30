@@ -4,9 +4,9 @@ import 'package:bangkode/model/topik.dart';
 import 'package:bangkode/ui/materi_player.dart';
 import 'package:flutter/material.dart';
 
-// ignore: must_be_immutable
 class MateriPage extends StatefulWidget {
-  Topik? topik;
+  final Topik? topik;
+
   MateriPage({Key? key, required this.topik}) : super(key: key);
 
   @override
@@ -42,22 +42,32 @@ class _MateriPageState extends State<MateriPage> {
           } else if (snapshot.hasError) {
             return Center(child: Text('Error: ${snapshot.error}'));
           } else {
-            return Stack(
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Positioned(
-                  top: 10,
-                  left: 10,
-                  right: 10,
-                  child: Image.network(
-                    'localhost/backend-bangkode/public/storage/topik/${widget.topik!.logo_topik}',
-                    fit: BoxFit.cover,
-                    height: 200, // Sesuaikan tinggi gambar sesuai kebutuhan
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height*0.4,
+                  decoration: ShapeDecoration(
+                    image: DecorationImage(
+                      image:
+                          NetworkImage("http://10.0.2.2:8000/storage/topik/${widget.topik!.logo_topik}"),
+                      fit: BoxFit.fill,
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
                   ),
                 ),
-                Padding(
-                  padding: EdgeInsets.only(
-                      top: 180), // Sesuaikan posisi list di bawah gambar
-                  child: ListMateri(list: snapshot.data),
+                const SizedBox(
+                  height: 10,
+                ),
+                Container(),
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ListMateri(list: snapshot.data),
+                  ),
                 ),
               ],
             );
@@ -97,13 +107,13 @@ class ItemMateri extends StatelessWidget {
         subtitle: Text("${materi.judul_materi}"),
         onTap: () {
           Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => MateriVideoPlayer(
-              materi: materi,
+            context,
+            MaterialPageRoute(
+              builder: (context) => MateriVideoPlayer(
+                materi: materi,
+              ),
             ),
-          ),
-        );
+          );
         },
       ),
     );

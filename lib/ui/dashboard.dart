@@ -27,8 +27,7 @@ class _DashboardState extends State<Dashboard> {
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
             child: InkWell(
               onTap: () {
-                // Implementasi navigasi ke halaman lain di sini
-                // Misalnya, Navigator.push ke halaman yang dituju
+                
               },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -66,8 +65,7 @@ class _DashboardState extends State<Dashboard> {
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
             child: InkWell(
               onTap: () {
-                // Implementasi navigasi ke halaman lain di sini
-                // Misalnya, Navigator.push ke halaman yang dituju
+                
               },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,

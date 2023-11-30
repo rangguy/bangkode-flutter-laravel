@@ -1,3 +1,5 @@
+import 'dart:convert';
+import 'dart:io';
 import 'package:bangkode/bloc/kategori_bloc.dart';
 import 'package:bangkode/model/kategori.dart';
 import 'package:bangkode/ui/topik_page.dart';
@@ -49,7 +51,7 @@ class _KategoriPageState extends State<KategoriPage> {
               list: snapshot.data,
             );
           } else {
-            return Center(child: Text('No Data'));
+            return const Center(child: Text('Tidak ada data kategori'));
           }
         },
       ),
@@ -95,9 +97,8 @@ class ItemKategori extends StatelessWidget {
       },
       child: Card(
         child: ListTile(
-          leading: Image.network('https://via.placeholder.com/50'),
+          leading: Image.network('http://10.0.2.2:8000/storage/kategori/${kategori.foto!}', width: 60,),
           title: Text(kategori.nama_kategori!),
-          subtitle: Text(kategori.foto!),
         ),
       ),
     );

@@ -89,7 +89,7 @@ class ItemTopik extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: ListTile(
-        leading: Image.network('https://via.placeholder.com/50'),
+        leading: Image.network('http://10.0.2.2:8000/storage/topik/${topik.logo_topik!}'),
         title: Text("${topik.id_topik}"),
         subtitle: Text("${topik.nama_topik}"),
         onTap: () {

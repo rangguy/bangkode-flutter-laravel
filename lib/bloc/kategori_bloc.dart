@@ -5,7 +5,7 @@ import 'package:bangkode/model/kategori.dart';
 
 class KategoriBloc {
   static Future<List<Kategori>> getKategoris() async {
-    String apiUrl = ApiUrl.baseUrl;
+    String apiUrl = ApiUrl.getKategori;
     var response = await Api().get(apiUrl);
     var jsonObj = json.decode(response.body);
     List<dynamic> listKategori = (jsonObj as Map<String, dynamic>)['data'];
