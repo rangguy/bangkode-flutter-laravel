@@ -48,7 +48,7 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
             SizedBox(height: 20),
             Text(
-              'User',
+              'Rangga',
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
@@ -56,7 +56,7 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
             SizedBox(height: 10),
             Text(
-              'user@mail.com',
+              'rangga@mail.com',
               style: TextStyle(
                 fontSize: 16,
                 color: Colors.grey,
