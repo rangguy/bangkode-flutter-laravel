@@ -35,7 +35,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (BuildContext context) => Nav(),
+              builder: (BuildContext context) => Nav(userEmail: _email, userName: _name,),
             ));
       } else {
         errorSnackBar(context, responseMap.values.first[0]);
@@ -60,6 +60,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             color: Colors.white,
           ),
         ),
+        automaticallyImplyLeading: false,
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),

@@ -26,7 +26,7 @@ class AuthServices {
   static Future<http.Response> login(String email, String password) async {
     Map data = {
       "email": email,
-      "password": password,
+      "password": password
     };
     var body = json.encode(data);
     var url = Uri.parse(ApiUrl.login);

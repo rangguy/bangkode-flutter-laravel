@@ -1,33 +1,21 @@
 import 'dart:convert';
 
 import 'package:bangkode/Screens/login_screen.dart';
-import 'package:bangkode/Services/auth_services.dart';
 import 'package:flutter/material.dart';
 
 class ProfilePage extends StatefulWidget {
+  final String userEmail;
+  final String userName;
+
+  const ProfilePage({Key? key, required this.userEmail, required this.userName}) : super(key: key);
+
   @override
   State<ProfilePage> createState() => _ProfilePageState();
 }
 
-Future<Map<String, dynamic>?> fetchUserProfile(String email, String password) async {
-  var response = await AuthServices.login(email, password);
-
-  if (response.statusCode == 200) {
-    var jsonResponse = json.decode(response.body);
-
-    // Mengekstrak informasi nama dan email dari respons server
-    String name = jsonResponse['user']['name'];
-    String userEmail = jsonResponse['user']['email'];
-
-    // Mengembalikan nama dan email dalam bentuk Map
-    return {'name': name, 'email': userEmail};
-  } else {
-    // Jika ada kesalahan, kembalikan null atau lakukan penanganan kesalahan lainnya
-    return null;
-  }
-}
-
 class _ProfilePageState extends State<ProfilePage> {
+  String? userName;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,7 +36,7 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
             SizedBox(height: 20),
             Text(
-              'Rangga',
+              widget.userName ?? 'Loading...',
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
@@ -56,7 +44,8 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
             SizedBox(height: 10),
             Text(
-              'rangga@mail.com',
+              widget.userEmail ??
+                  'Loading...', // Menampilkan userEmail dari widget
               style: TextStyle(
                 fontSize: 16,
                 color: Colors.grey,
@@ -65,8 +54,10 @@ class _ProfilePageState extends State<ProfilePage> {
             SizedBox(height: 30),
             ElevatedButton(
               onPressed: () {
-                Navigator.pop(context,
-                    MaterialPageRoute(builder: (context) => LoginScreen()));
+                Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(builder: (context) => LoginScreen()),
+                    (route) => false);
               },
               child: Text('Logout'),
             ),

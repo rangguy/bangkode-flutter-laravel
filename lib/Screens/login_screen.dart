@@ -1,12 +1,11 @@
 import 'dart:convert';
 
+import 'package:bangkode/Screens/register_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:bangkode/Services/auth_services.dart';
 import 'package:bangkode/Services/globals.dart';
 import 'package:bangkode/rounded_button.dart';
 import 'package:http/http.dart' as http;
-
-import 'package:bangkode/ui/dashboard.dart';
 import 'package:bangkode/nav.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -19,16 +18,18 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   String _email = '';
   String _password = '';
+  String _username = '';
 
   loginPressed() async {
     if (_email.isNotEmpty && _password.isNotEmpty) {
       http.Response response = await AuthServices.login(_email, _password);
       Map responseMap = jsonDecode(response.body);
       if (response.statusCode == 200) {
+        String _username = responseMap['user']['name'];
         Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (BuildContext context) => Nav(),
+              builder: (BuildContext context) => Nav(userEmail: _email, userName: _username),
             ));
       } else {
         errorSnackBar(context, responseMap.values.first);
@@ -50,6 +51,7 @@ class _LoginScreenState extends State<LoginScreen> {
             style: TextStyle(
                 fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
           ),
+          automaticallyImplyLeading: false,
         ),
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -84,6 +86,25 @@ class _LoginScreenState extends State<LoginScreen> {
               RoundedButton(
                 btnText: 'Masuk',
                 onBtnPressed: () => loginPressed(),
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (BuildContext context) =>
+                            const RegisterScreen(),
+                      ));
+                },
+                child: const Text(
+                  'Belum Punya Akun?',
+                  style: TextStyle(
+                    decoration: TextDecoration.underline,
+                  ),
+                ),
               )
             ],
           ),
