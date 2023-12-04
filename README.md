@@ -14,7 +14,7 @@ framework.</p>
 ## Tech
 <ol>
   <li>Flutter</li>
-  <a><li href="https://github.com/rangguy/backend-bangkode">Laravel 10, API dari BangKode</li></a>
+  <li><a href="https://github.com/rangguy/backend-bangkode">Laravel 10</a>, API dari BangKode</li>
   <li>MySQL</li>
 </ol>
 
