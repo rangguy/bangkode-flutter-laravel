@@ -1,16 +1,27 @@
 # bangkode
 
-A new Flutter project.
+## About
+<p>Pada saat ini, materi pembelajaran mengenai pemrograman
+sangat diminati terutama dikalangan mahasiswa jurusan
+Informatika. Oleh karena itu, “BangKode” dirancang untuk menjadi
+jawaban bagi kebutuhan akan materi pemrograman. Aplikasi
+“BangKode” merupakan aplikasi yang dapat menjadi media
+pembelajaran bagi khalayak umum khususnya bagi para pelajar
+agar mereka dapat mengetahui rekomendasi video yang perlu
+ditonton untuk belajar berbagai bahasa pemrograman dan
+framework.</p>
 
-## Getting Started
+## Tech
+<ol>
+  <li>Flutter</li>
+  <li href="https://github.com/rangguy/backend-bangkode">Laravel 10, API dari BangKode</li>
+  <li>MySQL</li>
+</ol>
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## User Feature
+Terdapat 1 role user, yaitu pengguna aplikasi.
+<ol>
+  <li>Registrasi & Login Application</li>
+  <li>View Content on Application</li>
+  <li>Logout Application</li>
+</ol>
