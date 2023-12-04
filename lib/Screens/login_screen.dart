@@ -25,7 +25,7 @@ class _LoginScreenState extends State<LoginScreen> {
       http.Response response = await AuthServices.login(_email, _password);
       Map responseMap = jsonDecode(response.body);
       if (response.statusCode == 200) {
-        String _username = responseMap['user']['name'];
+        _username = responseMap['user']['name'];
         Navigator.push(
             context,
             MaterialPageRoute(
