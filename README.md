@@ -11,6 +11,14 @@ agar mereka dapat mengetahui rekomendasi video yang perlu
 ditonton untuk belajar berbagai bahasa pemrograman dan
 framework.</p>
 
+## Team
+<ol>
+  <li>Wildan Nouval Rizki          (H1D021017)</li>
+  <li>Rangga Dwi Mahendra          (H1D021034)</li>
+  <li>Randhika Rangga Suryakusuma  (H1D021050)</li>
+  <li>Daffa Khairon Khan           (H1D021097)</li>
+</ol>
+
 ## Tech
 <ol>
   <li>Flutter</li>
